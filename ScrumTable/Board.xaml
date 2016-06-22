@@ -1,0 +1,139 @@
+﻿<Page
+    x:Class="ScrumTable.Board"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ScrumTable"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style TargetType="ListView">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="DarkGray" />
+            <Setter Property="AllowDrop" Value="True" />
+            <Setter Property="CanDragItems" Value="True" />
+            
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="ExtraLight"/>
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+
+        <DataTemplate x:Key="MyItemDataTemplate">
+            <StackPanel Width="100" Height="100" Background="red" Padding="10">
+                <TextBlock Text="{Binding Name}" />
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Board" FontSize="20" Margin="10"/>
+            <ComboBox Grid.Column="1" x:Name="projects" HorizontalAlignment="Stretch" Margin="10" SelectionChanged="projects_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Rectangle Grid.Column="0" Width="20" Height="20" Fill="{Binding Color}" Margin="5"/>
+                            <TextBlock Grid.Column="1" Text="{Binding Name}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="TODO" />
+                <ListView
+                  x:Name="cat0"
+				  ItemTemplate="{StaticResource MyItemDataTemplate}"
+                  DragOver="ListView_DragOver" 
+				  Drop="ListView_Drop" 
+                  DragItemsStarting="UnorganizedListView_OnDragItemsStarting"
+				  Grid.Row="1" />
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="BA" />
+                <ListView
+                  x:Name="cat1"
+				  ItemTemplate="{StaticResource MyItemDataTemplate}"
+                  DragOver="ListView_DragOver" 
+				  Drop="ListView_Drop" 
+                  DragItemsStarting="UnorganizedListView_OnDragItemsStarting"
+				  Grid.Row="1" />
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="DEV" />
+                <ListView
+                  x:Name="cat2"
+				  ItemTemplate="{StaticResource MyItemDataTemplate}"
+                  DragOver="ListView_DragOver" 
+				  Drop="ListView_Drop" 
+                  DragItemsStarting="UnorganizedListView_OnDragItemsStarting"
+				  Grid.Row="1" />
+            </Grid>
+            <Grid Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="QA"/>
+                <ListView
+                  x:Name="cat3"
+				  ItemTemplate="{StaticResource MyItemDataTemplate}"
+                  DragOver="ListView_DragOver" 
+				  Drop="ListView_Drop" 
+                  DragItemsStarting="UnorganizedListView_OnDragItemsStarting"
+				  Grid.Row="1" />
+            </Grid>
+            <Grid Grid.Column="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="DONE"/>
+                <ListView
+                  x:Name="cat4"
+				  ItemTemplate="{StaticResource MyItemDataTemplate}"
+                  DragOver="ListView_DragOver" 
+				  Drop="ListView_Drop" 
+                  DragItemsStarting="UnorganizedListView_OnDragItemsStarting"
+				  Grid.Row="1" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
