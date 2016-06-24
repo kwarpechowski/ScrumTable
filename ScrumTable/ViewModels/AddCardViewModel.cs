@@ -69,7 +69,6 @@ namespace ScrumTable.ViewModels
                 _projectList = value;
                 SelectedProject = _projectList.FirstOrDefault();
                 RaisePropertyChanged("ProjectList");
-                RaisePropertyChanged("SelectedProject");
             }
         }
 
@@ -84,11 +83,6 @@ namespace ScrumTable.ViewModels
             pointsList.Add(21);
 
             SelectedPoint = pointsList.FirstOrDefault();
-        }
-
-        public static implicit operator List<object>(AddCardViewModel v)
-        {
-            throw new NotImplementedException();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -33,6 +33,7 @@
                                     </Grid.ColumnDefinitions>
                                     <TextBlock Grid.Column="0" Text="{Binding Name}" FontSize="20" Margin="10"/>
                                     <Button Grid.Column="1" Content="Delete" Click="Button_Click_1" Margin="10"/>
+                                    <Button Grid.Column="2" Content="Edit" Click="Button_Click_2" Margin="10"/>
                                 </Grid>
                                 
                             </DataTemplate>
@@ -52,12 +53,11 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" Text="Project name" Margin="10, 0, 0, 0"/>
-                    <TextBox Grid.Row="1"  x:Name="textBox" Margin="10" HorizontalAlignment="Stretch" Text="" />
+                    <TextBox Grid.Row="1"   Margin="10" HorizontalAlignment="Stretch" Text="{Binding ProjectName, Mode=TwoWay}" />
 
                     <TextBlock Grid.Row="2" Text="Color" Margin="10, 0, 0, 0"/>
-                    <ComboBox Grid.Row="3" HorizontalAlignment="Stretch" Margin="10" x:Name="color" />
+                    <ComboBox Grid.Row="3" HorizontalAlignment="Stretch" Margin="10" ItemsSource="{Binding Colors}" SelectedItem="{Binding SelectedColor, Mode=TwoWay}" />
                     <Button Grid.Row="4"  Content="Save" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Top" Click="Button_Click"/>
-
 
                 </Grid>
             </PivotItem>

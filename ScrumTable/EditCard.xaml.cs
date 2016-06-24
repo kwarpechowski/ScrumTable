@@ -33,7 +33,6 @@ namespace ScrumTable
             this.InitializeComponent();
             this.DataContext = viewModel;
             viewModel.ProjectList = db.Projects.ToList();
-            Debug.WriteLine("jeden");
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
