@@ -115,5 +115,10 @@ namespace ScrumTable
             var card = datacontext as Card;
             Frame.Navigate(typeof(EditCard), card);
         }
+
+        private void TextBlock_ContextMenuOpening(object sender, ContextMenuEventArgs e)
+        {
+
+        }
     }
 }

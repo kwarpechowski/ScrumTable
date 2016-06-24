@@ -12,14 +12,14 @@
               CompactPaneLength="50" OpenPaneLength="150">
             <SplitView.Pane>
                 <StackPanel Background="Gray">
-                    <Button x:Name="Board" FontFamily="Segoe MDL2 Assets" Content="&#xE825;"
+                    <Button x:Name="Board" FontFamily="Segoe MDL2 Assets" Content="&#xE80F;"
                    Width="50" Height="50" Background="Transparent" Click="Board_Click"/>
-                    
-                    <Button x:Name="Projects" FontFamily="Segoe MDL2 Assets" Content="&#xE825;"
+
+                    <Button x:Name="Projects" FontFamily="Segoe MDL2 Assets" Content="&#xE8B7;"
                    Width="50" Height="50" Background="Transparent" Click="Projects_Click"/>
 
 
-                    <Button x:Name="AddCard" FontFamily="Segoe MDL2 Assets" Content="&#xE826;"
+                    <Button x:Name="AddCard" FontFamily="Segoe MDL2 Assets" Content="&#xE710;"
                    Width="50" Height="50" Background="Transparent" Click="AddCard_Click"/>
 
                 </StackPanel>
