@@ -111,7 +111,9 @@ namespace ScrumTable
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var datacontext = (e.OriginalSource as FrameworkElement).DataContext;
+            var card = datacontext as Card;
+            Frame.Navigate(typeof(EditCard), card);
         }
     }
 }

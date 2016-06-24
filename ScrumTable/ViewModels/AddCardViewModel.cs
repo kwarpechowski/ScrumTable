@@ -10,9 +10,52 @@ namespace ScrumTable.ViewModels
     {
         public List<int> pointsList { get; } = new List<int>();
         private List<Project> _projectList { get; set; } = new List<Project>();
-        public int SelectedPoint { get; set; }
-        public Project SelectedProject { get; set; }
-        public string CardName { get; set; }
+        private string _cardName;
+        private int _selectedPoint;
+        private Project _selectedProject;
+
+
+        public int SelectedPoint
+        {
+            get
+            {
+                return _selectedPoint;
+            }
+            set
+            {
+                _selectedPoint = value;
+                RaisePropertyChanged("SelectedPoint");
+            }
+        }
+
+        public Project SelectedProject
+        {
+            get
+            {
+                return _selectedProject;
+            }
+            set
+            {
+                _selectedProject = value;
+                RaisePropertyChanged("SelectedProject");
+            }
+        }
+
+
+
+        public string CardName
+        {
+            get
+            {
+                return _cardName;
+            }
+            set
+            {
+                _cardName = value;
+                RaisePropertyChanged("CardName");
+            }
+        }
+
 
 
         public List<Project> ProjectList
