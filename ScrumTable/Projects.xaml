@@ -11,12 +11,30 @@
         <Pivot Title="" x:Name="pivot">
             <PivotItem Header="Projects">
                 <Grid>
-                    <ListView x:Name="listView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <ListView x:Name="listView" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionMode="None">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <ContentPresenter/>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel HorizontalAlignment="Stretch" Background="{Binding Color}" Margin="10">
-                                    <TextBlock Text="{Binding Name}" FontSize="20" />
-                                </StackPanel>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="{Binding Name}" FontSize="20" Margin="10"/>
+                                    <Button Grid.Column="1" Content="Delete" Click="Button_Click_1" Margin="10"/>
+                                </Grid>
+                                
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>

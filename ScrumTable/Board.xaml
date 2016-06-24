@@ -16,6 +16,18 @@
             
         </Style>
 
+        <Style TargetType="ListViewItem">
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <ContentPresenter/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style TargetType="TextBlock">
             <Setter Property="FontWeight" Value="ExtraLight"/>
             <Setter Property="FontSize" Value="20" />
@@ -24,9 +36,27 @@
         </Style>
 
         <DataTemplate x:Key="MyItemDataTemplate">
-            <StackPanel Width="100" Height="100" Background="red" Padding="10">
-                <TextBlock Text="{Binding Name}" />
-            </StackPanel>
+            <StackPanel Padding="10" BorderBrush="Black" BorderThickness="1" CornerRadius="10">
+                    <Grid PointerEntered="Grid_PointerEntered">
+                    <FlyoutBase.AttachedFlyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem x:Name="EditButton" Text="Edit" Click="EditButton_Click"/>
+                            <MenuFlyoutItem x:Name="DeleteButton" Text="Delete" Click="DeleteButton_Click"/>
+                        </MenuFlyout>
+                    </FlyoutBase.AttachedFlyout>
+                    <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                     </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Name}" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Points}" HorizontalAlignment="Right"/>
+                    </Grid>
+                </StackPanel>
+
         </DataTemplate>
     </Page.Resources>
 
@@ -76,7 +106,9 @@
                   DragOver="ListView_DragOver" 
 				  Drop="ListView_Drop" 
                   DragItemsStarting="UnorganizedListView_OnDragItemsStarting"
-				  Grid.Row="1" />
+				  Grid.Row="1" >
+                    <TextBlock x:Name="textBlock" Height="100" TextWrapping="Wrap" Text="TextBlock" Width="100"/>
+                </ListView>
             </Grid>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>

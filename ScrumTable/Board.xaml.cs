@@ -92,5 +92,26 @@ namespace ScrumTable
                 }
             }
         }
+
+        private void Grid_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            FrameworkElement senderElement = sender as FrameworkElement;
+            FlyoutBase flyoutBase = FlyoutBase.GetAttachedFlyout(senderElement);
+            flyoutBase.ShowAt(senderElement);
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            var datacontext = (e.OriginalSource as FrameworkElement).DataContext;
+            var card = datacontext as Card;
+            db.Cards.Remove(card);
+            db.SaveChanges();
+            ShowCards();
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
