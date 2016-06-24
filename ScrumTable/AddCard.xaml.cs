@@ -1,6 +1,8 @@
 ﻿using ScrumTable.Models;
+using ScrumTable.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -23,37 +25,23 @@ namespace ScrumTable
     /// </summary>
     public sealed partial class AddCard : Page
     {
+        private AddCardViewModel viewModel = new AddCardViewModel();
         private Context db = new Context();
         public AddCard()
         {
             this.InitializeComponent();
-            this.setPoints();
-            this.projects.ItemsSource = db.Projects.ToList();
-            this.projects.SelectedValue = db.Projects.FirstOrDefault();
+            this.DataContext = viewModel;
+            viewModel.ProjectList = db.Projects.ToList();
         }
 
-        private void setPoints()
-        {
-            var plist = new List<int>();
-            plist.Add(1);
-            plist.Add(2);
-            plist.Add(3);
-            plist.Add(5);
-            plist.Add(8);
-            plist.Add(13);
-            plist.Add(21);
-
-            points.ItemsSource = plist;
-            points.SelectedItem = plist.First();
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var card = new Card()
             {
-                Name = textBox.Text,
-                Points = Int16.Parse(points.SelectedValue.ToString()),
-                project = this.projects.SelectedItem as Project
+                Name = viewModel.CardName,
+                Points = viewModel.SelectedPoint,
+                project = viewModel.SelectedProject
             };
 
             db.Cards.Add(card);
