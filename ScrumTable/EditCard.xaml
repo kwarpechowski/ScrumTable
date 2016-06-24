@@ -19,15 +19,15 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Margin="10" FontSize="40" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Edit Card" />
+        <TextBlock Grid.Row="0" Margin="10" FontSize="40" HorizontalAlignment="Left" TextWrapping="Wrap" x:Uid="EditCard" />
 
-        <TextBlock Grid.Row="1" Text="Card name" Margin="10, 0, 0, 0"/>
+        <TextBlock Grid.Row="1" x:Uid="CardName" Margin="10, 0, 0, 0"/>
         <TextBox Grid.Row="2"  Margin="10" HorizontalAlignment="Stretch" Text="{Binding CardName, Mode=TwoWay}" />
 
-        <TextBlock Grid.Row="3" Text="Points" Margin="10, 0, 0, 0"/>
+        <TextBlock Grid.Row="3" x:Uid="Points" Margin="10, 0, 0, 0"/>
         <ComboBox Grid.Row="4" HorizontalAlignment="Stretch" Margin="10" ItemsSource="{Binding pointsList}" SelectedItem="{Binding SelectedPoint, Mode=TwoWay}"/>
 
-        <TextBlock Grid.Row="5" Text="Project" Margin="10, 0, 0, 0"/>
+        <TextBlock Grid.Row="5" x:Uid="Project" Margin="10, 0, 0, 0"/>
         <ComboBox Grid.Row="6" HorizontalAlignment="Stretch" Margin="10" ItemsSource="{Binding ProjectList, Mode=OneWay}" SelectedItem="{Binding SelectedProject, Mode=TwoWay}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
@@ -43,8 +43,8 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <Button Grid.Row="7"  Content="Save" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Top" Click="Button_Click"/>
-        <Button Grid.Row="8"  Content="Cancel" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Top" Click="Button_Click_1"/>
+        <Button Grid.Row="7" x:Uid="Save" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button Grid.Row="8" x:Uid="Cancel" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Top" Click="Button_Click_1"/>
 
 
     </Grid>

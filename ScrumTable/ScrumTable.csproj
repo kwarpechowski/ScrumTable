@@ -90,6 +90,8 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="project.json" />
+    <PRIResource Include="Strings\pl-PL\Resources.resw" />
+    <PRIResource Include="Strings\en-US\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddCard.xaml.cs">
@@ -126,6 +128,7 @@
     <Compile Include="Migrations\ContextModelSnapshot.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\Client.cs" />
     <Compile Include="Projects.xaml.cs">
       <DependentUpon>Projects.xaml</DependentUpon>
     </Compile>

@@ -40,8 +40,8 @@
                     <Grid PointerEntered="Grid_PointerEntered">
                     <FlyoutBase.AttachedFlyout>
                         <MenuFlyout>
-                            <MenuFlyoutItem x:Name="EditButton" Text="Edit" Click="EditButton_Click"/>
-                            <MenuFlyoutItem x:Name="DeleteButton" Text="Delete" Click="DeleteButton_Click"/>
+                            <MenuFlyoutItem x:Name="EditButton" x:Uid="Edit" Click="EditButton_Click"/>
+                            <MenuFlyoutItem x:Name="DeleteButton" x:Uid="Delete" Click="DeleteButton_Click"/>
                         </MenuFlyout>
                     </FlyoutBase.AttachedFlyout>
                     <Grid.RowDefinitions>
@@ -70,7 +70,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Text="Board" FontSize="20" Margin="10"/>
+            <TextBlock Grid.Column="0" x:Uid="Board" FontSize="20" Margin="10"/>
             <ComboBox Grid.Column="1" x:Name="projects" HorizontalAlignment="Stretch" Margin="10" SelectionChanged="projects_SelectionChanged">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -99,7 +99,7 @@
                     <RowDefinition Height="50" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Text="TODO" />
+                <TextBlock Grid.Row="0" x:Uid="Todo" />
                 <ListView
                   x:Name="cat0"
 				  ItemTemplate="{StaticResource MyItemDataTemplate}"
@@ -115,7 +115,7 @@
                     <RowDefinition Height="50" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Text="BA" />
+                <TextBlock Grid.Row="0" x:Uid="Ba" />
                 <ListView
                   x:Name="cat1"
 				  ItemTemplate="{StaticResource MyItemDataTemplate}"
@@ -129,7 +129,7 @@
                     <RowDefinition Height="50" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Text="DEV" />
+                <TextBlock Grid.Row="0" x:Uid="Dev" />
                 <ListView
                   x:Name="cat2"
 				  ItemTemplate="{StaticResource MyItemDataTemplate}"
@@ -143,7 +143,7 @@
                     <RowDefinition Height="50" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Text="QA"/>
+                <TextBlock Grid.Row="0" x:Uid="Qa"/>
                 <ListView
                   x:Name="cat3"
 				  ItemTemplate="{StaticResource MyItemDataTemplate}"
@@ -157,7 +157,7 @@
                     <RowDefinition Height="50" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Text="DONE"/>
+                <TextBlock Grid.Row="0" x:Uid="Done"/>
                 <ListView
                   x:Name="cat4"
 				  ItemTemplate="{StaticResource MyItemDataTemplate}"
